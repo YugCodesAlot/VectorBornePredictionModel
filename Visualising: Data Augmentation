@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+plt.figure(figsize=(8, 6))
+sns.countplot(x=Y_train_smote, palette='viridis')
+plt.title('Class Distribution After SMOTE')
+plt.xlabel('Final Output')
+plt.ylabel('Count')
+plt.xticks(ticks=[0, 1], labels=['0.0', '1.0'])
+plt.grid(axis='y')
+plt.show()
