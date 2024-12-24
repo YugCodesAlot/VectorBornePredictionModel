@@ -1,0 +1,8 @@
+df.isnull().sum()
+df.isnull().sum()*100/len(df) # handling missing values
+df.duplicated().sum()
+df.describe(). T
+for i in ["WBC Count","Platelet Count","PDW","Final Output"]:
+  df[i].fillna(df[i].median(),inplace=True)
+df.isnull().sum()
+
