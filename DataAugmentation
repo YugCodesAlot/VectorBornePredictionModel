@@ -1,0 +1,25 @@
+# The purpose of Data Augemtation is to balance the dataset in equal parts to ensure the model is reliable and does not incline towards a BIAS
+
+from imblearn.over_sampling import SMOTE
+smote = SMOTE(random_state=42)
+print(df.isnull().sum())
+print(X_train.isnull().sum())
+
+# Since there are missing values in the X_train column, we will handle them before applying SMOTE
+
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(strategy='median')
+X_train_imputed = imputer.fit_transform(X_train)
+X_val_imputed = imputer.transform(X_val)
+cols_with_missing_values = ["WBC Count", "Platelet Count", "PDW"]
+for col in cols_with_missing_values:
+    X_train[col].fillna(X_train[col].median(), inplace=True)
+    X_val[col].fillna(X_val[col].median(), inplace=True)
+print(X_train.isnull().sum())
+print(X_val.isnull().sum())
+
+from imblearn.over_sampling import SMOTE
+smote = SMOTE(random_state=42)
+X_train_smote, Y_train_smote = smote.fit_resample(X_train_imputed, Y_train)
+
+print(Y_train_smote.value_counts()) # output will be generated. Ensure it is equal for 0 and 1
