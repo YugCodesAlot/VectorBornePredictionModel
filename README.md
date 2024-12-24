@@ -1,1 +1,1 @@
-# VectorBornePredictionModel
+The central idea of this project revolves around the incorporation of Machine Learning in the field of Medical/Healthcare. Throughout the workings of this project you will learn various Machine Learning Concepts and algorithms, all of which are working towards rendering a "state-of-the-art"  prediction model with an emphasis on Vector Borne Diseases. As the developer of this project, I condone and permit anyone to use the source code as per their needs.
